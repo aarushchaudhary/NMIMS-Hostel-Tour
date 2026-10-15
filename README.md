@@ -11,8 +11,9 @@ An interactive 360-degree virtual walkthrough of the **NMIMS Hostel** built with
 
 ## 🌟 Features
 
+* **VR & OpenXR Support**: Immersive Virtual Reality walkthrough support (`TourVR.unity`) powered by Unity XR Interaction Toolkit and OpenXR with controller ray/direct interactor navigation.
 * **360° Curved Panorama Projection**: Dynamically generated curved mesh cylinder (`CurvedScreen.cs`) that renders high-resolution panoramic frames with configurable field-of-view and curvature.
-* **Node-Based Spatial Navigation**: Interconnected node graph system (`PanoNode.cs`) allowing natural forward/backward travel between locations with animated directional hotspot arrows (`Hotspot.cs`).
+* **Node-Based Spatial Navigation**: Interconnected node graph system (`PanoNode.cs`) allowing natural forward/backward travel between locations with animated directional hotspot arrows (`Hotspot.cs`) and XR interaction (`XRSimpleInteractable`).
 * **Area Quick-Jump Menu**: On-screen overlay menu (`AreaMenu.cs`) built with TextMesh Pro and Unity UI to quickly teleport to key hostel zones.
 * **Smooth Camera & Look Controls**: Intuitive mouse drag and touch swipe panning controls with customizable sensitivity and angle clamping (`LimitedLook.cs`).
 * **Fade Transitions**: Smooth alpha fading when transitioning between panorama nodes (`PanoViewer.cs`).
@@ -72,13 +73,19 @@ git lfs pull
 1. Open **Unity Hub**.
 2. Click **Add** > **Add project from disk** and select the `NMIMS Hostel Tour` directory.
 3. Open the project with Unity Editor `6000.3.26f1` (or compatible Unity 6 release).
-4. In the Project window, navigate to `Assets/Scenes/` and double-click **`Main.unity`**.
+4. In the Project window, navigate to `Assets/Scenes/`:
+   * Double-click **`Main.unity`** for desktop/screen preview.
+   * Double-click **`TourVR.unity`** for immersive XR / VR headset experience.
 5. Press **Play** (▶) in the Unity Editor to explore the tour.
 
 ### Controls
-* **Left Mouse Button / Touch**: Click and drag to look around.
-* **Arrow Hotspots**: Click / tap on glowing arrows on the floor to navigate forward or backward.
-* **Left Navigation Menu**: Click any destination button to jump directly to that area.
+* **Desktop / Mobile**:
+  * **Left Mouse Button / Touch**: Click and drag to look around.
+  * **Arrow Hotspots**: Click / tap on glowing arrows on the floor to navigate forward or backward.
+  * **Left Navigation Menu**: Click any destination button to jump directly to that area.
+* **VR Headset**:
+  * **Head Tracking**: Look around in 360 degrees.
+  * **XR Controllers**: Aim ray at hotspot arrows and pull the trigger/select button to teleport.
 
 ---
 
@@ -87,6 +94,7 @@ git lfs pull
 ```
 NMIMS Hostel Tour/
 ├── Assets/
+│   ├── CompositionLayers/           # XR composition layer settings
 │   ├── Editor/
 │   │   └── TourBuilder.cs           # Editor automation for generating nodes & scenes
 │   ├── Frames/                      # 360° photo/render frame sequences (Git LFS)
@@ -100,16 +108,20 @@ NMIMS Hostel Tour/
 │   │   └── TV_Room_2/
 │   ├── Materials/                   # Shaders, skyboxes, and UI materials
 │   ├── Prefabs/                     # Reusable navigation arrows & UI elements
+│   ├── Samples/                     # XR Interaction Toolkit starter assets & models
 │   ├── Scenes/
-│   │   └── Main.unity               # Main interactive tour scene
+│   │   ├── Main.unity               # Desktop/touch interactive tour scene
+│   │   └── TourVR.unity             # VR / OpenXR interactive tour scene
 │   ├── Scripts/
 │   │   ├── AreaMenu.cs              # Dynamic UI sidebar for quick teleportation
 │   │   ├── CurvedScreen.cs          # Procedural curved projection mesh generator
-│   │   ├── Hotspot.cs               # Clickable 3D hotspot navigation trigger
+│   │   ├── Hotspot.cs               # Clickable/XR-interactable hotspot trigger
 │   │   ├── LimitedLook.cs           # Mouse/touch camera panning with pitch/yaw clamping
 │   │   ├── PanoNode.cs              # Node data representing an individual panoramic spot
 │   │   └── PanoViewer.cs            # Core tour manager handling transitions & textures
-│   └── TextMesh Pro/                # TextMesh Pro fonts, resources, and shaders
+│   ├── TextMesh Pro/                # TextMesh Pro fonts, resources, and shaders
+│   ├── XR/                          # OpenXR loaders, settings, and runtime profiles
+│   └── XRI/                         # XR Interaction Toolkit device simulator settings
 ├── Packages/                        # Unity Package Manager manifest & lockfile
 ├── ProjectSettings/                 # Unity project configuration and quality settings
 ├── .gitattributes                   # Git LFS & Unity merge driver attributes

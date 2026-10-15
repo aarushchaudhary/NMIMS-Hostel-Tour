@@ -8,8 +8,8 @@ public class PanoViewer : MonoBehaviour {
     public PanoNode startNode;
     public Renderer screenRenderer;
     public GameObject arrowPrefab;
-    public Image fadePanel;
-    public TMP_Text areaLabel;          // optional
+    public Image fadePanel;             // leave empty in VR
+    public TMP_Text areaLabel;
     public float arrowRadius = 4.5f;
     public float arrowHeight = -0.5f;
     public float fadeTime = 0.25f;
@@ -41,7 +41,6 @@ public class PanoViewer : MonoBehaviour {
         arrows.Clear();
 
         for (int i = 0; i < current.neighbors.Length; i++) {
-            // Back links (180) are not shown as arrows, use the Back button
             if (Mathf.Approximately(current.neighborYaw[i], 180f)) continue;
 
             float yaw = current.neighborYaw[i] * Mathf.Deg2Rad;
@@ -53,6 +52,7 @@ public class PanoViewer : MonoBehaviour {
     }
 
     IEnumerator Fade(float from, float to, float time) {
+        if (fadePanel == null) yield break;
         for (float t = 0; t < time; t += Time.deltaTime) {
             var c = fadePanel.color;
             c.a = Mathf.Lerp(from, to, t / time);

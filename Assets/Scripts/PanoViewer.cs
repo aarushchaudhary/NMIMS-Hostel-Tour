@@ -7,7 +7,7 @@ using TMPro;
 public class PanoViewer : MonoBehaviour {
     public PanoNode startNode;
     public Renderer screenRenderer;
-    public GameObject arrowPrefab;
+    public GameObject arrowPrefab;      // leave empty in TourVR
     public Image fadePanel;             // leave empty in VR
     public TMP_Text areaLabel;
     public float arrowRadius = 4.5f;
@@ -16,6 +16,7 @@ public class PanoViewer : MonoBehaviour {
 
     PanoNode current;
     bool busy;
+    public PanoNode Current => current;
     readonly List<GameObject> arrows = new List<GameObject>();
 
     void Start() {
@@ -39,6 +40,7 @@ public class PanoViewer : MonoBehaviour {
     void BuildArrows() {
         foreach (var a in arrows) Destroy(a);
         arrows.Clear();
+        if (arrowPrefab == null) return;
 
         for (int i = 0; i < current.neighbors.Length; i++) {
             if (Mathf.Approximately(current.neighborYaw[i], 180f)) continue;
@@ -73,6 +75,16 @@ public class PanoViewer : MonoBehaviour {
         if (current == null) return;
         for (int i = 0; i < current.neighbors.Length; i++) {
             if (Mathf.Approximately(current.neighborYaw[i], 180f)) {
+                Travel(current.neighbors[i]);
+                return;
+            }
+        }
+    }
+
+    public void Forward() {
+        if (current == null) return;
+        for (int i = 0; i < current.neighbors.Length; i++) {
+            if (!Mathf.Approximately(current.neighborYaw[i], 180f)) {
                 Travel(current.neighbors[i]);
                 return;
             }

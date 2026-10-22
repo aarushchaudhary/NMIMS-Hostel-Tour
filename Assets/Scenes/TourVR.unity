@@ -2885,6 +2885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310158712}
   - component: {fileID: 310158711}
+  - component: {fileID: 310158713}
   m_Layer: 0
   m_Name: Viewer
   m_TagString: Untagged
@@ -2906,7 +2907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PanoViewer
   startNode: {fileID: 1627875693}
   screenRenderer: {fileID: 656198648}
-  arrowPrefab: {fileID: 1502013367693591542, guid: 5e5ff1a6d82104120a1f577a11fb415b, type: 3}
+  arrowPrefab: {fileID: 0}
   fadePanel: {fileID: 0}
   areaLabel: {fileID: 249639859}
   arrowRadius: 4.5
@@ -2927,6 +2928,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310158713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310158710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeea93db614e5cbc86f7dbc95701eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRControls
+  viewer: {fileID: 0}
+  xrOrigin: {fileID: 0}
+  debugText: {fileID: 0}
+  turnSpeed: 60
+  maxYaw: 60
+  maxPitch: 20
+  deadzone: 0.2
+  rayLength: 6
+  showInstructions: 1
 --- !u!1 &314073568
 GameObject:
   m_ObjectHideFlags: 0

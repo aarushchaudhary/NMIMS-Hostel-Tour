@@ -1,5 +1,7 @@
 # NMIMS Hostel Tour
 
+**▶ [Play in your browser](https://aarushchaudhary.itch.io/nmims-hostel-tour)**
+
 [![Unity Version](https://img.shields.io/badge/Unity-6000.3.26f1%20(Unity%206)-blue.svg)](https://unity.com/)
 [![Render Pipeline](https://img.shields.io/badge/Render%20Pipeline-URP-orange.svg)](https://unity.com/srp/Universal-Render-Pipeline)
 [![Platforms](https://img.shields.io/badge/Platforms-Desktop%20%7C%20WebGL%20%7C%20Meta%20Quest-green.svg)](#-building)

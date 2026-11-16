@@ -6,7 +6,7 @@
 [![Render Pipeline](https://img.shields.io/badge/Render%20Pipeline-URP-orange.svg)](https://unity.com/srp/Universal-Render-Pipeline)
 [![Platforms](https://img.shields.io/badge/Platforms-Desktop%20%7C%20WebGL%20%7C%20Meta%20Quest-green.svg)](#-building)
 [![Git LFS](https://img.shields.io/badge/Git-LFS%20Enabled-red.svg)](https://git-lfs.github.com/)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
 
 An interactive 360-degree virtual walkthrough of the **NMIMS Hostel**, built with **Unity 6** and the **Universal Render Pipeline (URP)**. Footage was recorded with a GoPro MAX 360 camera, and the app lets users explore hostel facilities, rooms and corridors in a Street View style, on desktop, in the browser, or in a Meta Quest headset.
 
@@ -198,7 +198,7 @@ NMIMS Hostel Tour/
 ├── ProjectSettings/                 # Unity project configuration
 ├── .gitattributes                   # Git LFS and Unity merge settings
 ├── .gitignore                       # Unity ignore rules
-├── LICENSE                          # GNU General Public License v3.0
+├── LICENSE                          # GNU Affero General Public License v3.0
 └── README.md                        # Project documentation
 ```
 
@@ -227,4 +227,4 @@ GitHub: [@aarushchaudhary](https://github.com/aarushchaudhary)
 
 ## 📜 License
 
-This project is licensed under the **GNU General Public License v3.0** (GPL-3.0). See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **GNU Affero General Public License v3.0** (AGPL-3.0). See the [LICENSE](LICENSE) file for details.
